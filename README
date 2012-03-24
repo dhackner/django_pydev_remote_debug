@@ -4,7 +4,7 @@ See: https://github.com/aptana/Pydev/tree/master/plugins/org.python.pydev.debug/
 
 Installation instructions:
 1) Pull code. Add PYDEVD_SERVER and PYDEVD_PATH_TRANSLATION to your django conf settings. Example values:
-PYDEVD_SERVER = '' # IP address of host machine running eclipse/pydev server
+PYDEVD_SERVER = '111.111.1.1' # IP address of host machine running eclipse/pydev server
 PYDEVD_PATH_TRANSLATION = [('/Users/dhackner/Developer/example', '/home/dev/example')] # A mapping of where the code sits in my host machine, to where it is shared down to on my VM.
 2) Download and install pydev code from above link. Our setup puts the source code in the ../lib/contrib/pydevd directory
 3) Insert the following line into any executed code: "Debuggable.enable_debug_mode()". This can be inserted in the setUp() method of unit tests to help debug them, or thrown into a custom manage.py command to get some insight as to what is going on during execution. A great use is to extend runserver so that it breaks when a flag is passed.
