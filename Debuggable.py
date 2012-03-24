@@ -8,9 +8,6 @@ def enable_debug_mode():
     if not hasattr(settings, 'PYDEVD_PATH_TRANSLATION'):
         raise CommandError("You must define a PYDEVD_PATH_TRANSLATION entry in django conf settings.")
     
-    # This is really hacky, but kinda has to be because of how awful the pydevd_file_utils class is (and I've 
-    # already hacked it a fair bit). Basically, we import the module, then rewrite a bunch of the import-time vars
-    # with vars from settings
     import contrib.pydevd
     contrib.pydevd.pydevd_file_utils.setup_translation_classes(settings.PYDEVD_PATH_TRANSLATION)
     
