@@ -1,5 +1,15 @@
-We wrote this chunk of code because we wanted a way to use Eclipse on our host to debug a server instance running on our VM.
+We wrote this chunk of code because we wanted a way to use Eclipse on our host to debug a server instance running on our VM. The code is shared down to the linux VM from the host and all calls to runserver take place on the VM.
 
 See: https://github.com/aptana/Pydev/tree/master/plugins/org.python.pydev.debug/pysrc and http://pydev.org/manual_adv_remote_debugger.html
+
+Installation instructions:
+1) Pull code. Add PYDEVD_SERVER and PYDEVD_PATH_TRANSLATION to your django conf settings. Example values:
+PYDEVD_SERVER = '' # IP address of host machine running eclipse/pydev server
+PYDEVD_PATH_TRANSLATION = [('/Users/dhackner/Developer/example', '/home/dev/example')] # A mapping of where the code sits in my host machine, to where it is shared down to on my VM.
+2) Download and install pydev code from above link. Our setup puts the source code in the ../lib/contrib/pydevd directory
+3) Insert the following line into any executed code: "Debuggable.enable_debug_mode()". This can be inserted in the setUp() method of unit tests to help debug them, or thrown into a custom manage.py command to get some insight as to what is going on during execution. A great use is to extend runserver so that it breaks when a flag is passed.
+4) Start pydev server in Eclipse (see above links) and set a breakpoint as normal.
+5) On remote machine, kick off the command to be debugged/runserver.
+6) Profit.
 
 By @dhackner and @fennb
