@@ -12,4 +12,4 @@ PYDEVD_PATH_TRANSLATION = [('/Users/dhackner/Developer/example', '/home/dev/exam
 5) On remote machine, kick off the command to be debugged/runserver.
 6) Profit.
 
-By @dhackner and @fennb
+By Adioso team (@dhackner @fennb @bluemoo)
