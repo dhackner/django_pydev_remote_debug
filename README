@@ -1,0 +1,5 @@
+@fennb and @danhackner -
+
+We up this little chunk of code because we wanted a way to use Eclipse on our host to debug a server instance running on our VM.
+
+See: https://github.com/aptana/Pydev/tree/master/plugins/org.python.pydev.debug/pysrc and http://pydev.org/manual_adv_remote_debugger.html
